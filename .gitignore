@@ -1,0 +1,9 @@
+.vscode
+**/*.out
+**/*.exe
+**/*.txt
+**/*.o
+**/*.DS_store
+**/*.a
+OUT/
+fractol
