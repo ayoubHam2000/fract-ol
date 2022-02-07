@@ -6,15 +6,25 @@
 #    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 17:21:43 by aben-ham          #+#    #+#              #
-#    Updated: 2022/02/03 20:58:31 by aben-ham         ###   ########.fr        #
+#    Updated: 2022/02/07 19:42:26 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror -I ./includes
+#-Wall -Wextra -Werror
+CFLAGS = -g  -I ./includes
 DEPFLAGS = -MMD -MF
 FRAMEWORK = -framework opengl -framework Appkit
 
 FILES = \
+	scripts/complex/complex.c \
+	scripts/complex/ncomplex.c \
+	scripts/events/on_mouse_down.c \
+	scripts/events/on_mouse_move.c \
+	scripts/events/on_mouse_up.c \
+	scripts/fract/mandelbrot_set.c \
+	scripts/graph/graph.c \
+	scripts/graph/init_mlx.c \
+	scripts/graph/graph_loop.c \
 	main.c
 
 NAME = fractol
@@ -23,8 +33,8 @@ MLX_LIB_NAME = libmlx.a
 MLX_DIR = ./minilibx_opengl
 
 OBJ_DIR = OUT/
-OBJ_FILES = $(OBJ_DIR)$(FILES:.c=.o)
-DEPS_FILES = $(OBJ_FILES:.o=.d)
+OBJ_FILES = $(addprefix $(OBJ_DIR), $(FILES:%.c=%.o))
+DEPS_FILES = $(OBJ_FILES:%.o=%.d)
 
 all : $(NAME)
 

@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   graph.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 15:35:22 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/07 19:42:04 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/02/07 15:53:11 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/02/07 15:53:24 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int main ()
+void	init_graph(t_graph *g)
 {
-	t_prog *prog;
+	g->zoom = 1;
+	g->trans.a = 0;
+	g->trans.b = 0;
+}
 
-	prog = init_mlx();
-	if (!prog)
-		return (1);
-	graph_loop(prog);
-	mlx_hook(prog->win, ON_MOUSEUP, 0, on_mouse_up, prog);
-	mlx_hook(prog->win, ON_MOUSEDOWN, 0, on_mouse_down, prog);
-	mlx_hook(prog->win, ON_MOUSEMOVE, 0, on_mouse_move, prog);
-	mlx_loop(prog->mlx);
-	return (0);	
+void	change_graph(t_graph *g)
+{
+	g->x_bound.a = -2 / g->zoom + g->trans.a;
+	g->x_bound.b = 2 / g->zoom + g->trans.a;
+	g->y_bound.a = -2 / g->zoom + g->trans.b;
+	g->y_bound.b = 2 / g->zoom + g->trans.b;
+	g->step = (g->x_bound.b - g->x_bound.a) / (WIDTH + 5);
+	printf("%lf -> %d\n", g->step, (WIDTH * WIDTH * STABLE) / 1000000);
 }
