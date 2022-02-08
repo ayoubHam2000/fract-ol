@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:49:20 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 17:17:02 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:20:34 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int on_mouse_move(int x, int y, t_prog *prog)
 		change_graph(&(prog->g));
 		graph_loop(prog);
 	}
+	
 	return (0);
 }
