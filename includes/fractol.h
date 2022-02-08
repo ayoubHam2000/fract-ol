@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:01:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 18:25:00 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 21:23:40 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include "mlx.h"
 # include "complex.h"
 
-# define WIDTH 400
+# define WIDTH 200
 # define TITLE "fractol"
 # define TRAN 0.1
 # define CZOOM 0.1
-# define STABLE 500
+# define STABLE 250
 
 # define KEY_L 123
 # define KEY_R 124
@@ -51,20 +51,20 @@ typedef struct s_graph
 	long double		step;
 }	t_graph;
 
-typedef struct s_prog
+typedef struct s_prog t_prog;
+struct s_prog
 {
 	void		*mlx;
 	void		*win;
 	t_complex	julia_const;
 	t_graph		g;
 	void		(*f)(t_prog *prog, t_complex c);
-}	t_prog;
+} ;
 
-t_prog	*init_mlx(void);
+t_prog	*init_prog(void);
+void	*init_mlx(t_prog *prog);
 
 int		on_mouse_down(int button, int x, int y, t_prog *prog);
-int 	on_mouse_move(int x, int y, t_prog *prog);
-int		on_mouse_up(int button, int x, int y, t_prog *prog);
 int		on_key_up(int keycode, t_prog *prog);
 
 int		exit_fract(t_prog *prog);
@@ -74,9 +74,11 @@ void	change_graph(t_graph *g);
 
 void	mandelbrot_set(t_prog *prog, t_complex c);
 void	julia_set(t_prog *prog, t_complex c);
+void	nova_set(t_prog *prog, t_complex p);
 
 int		set_rgb(int r, int g, int b);
 void	get_color(int map[]);
 double	ft_atof(const char *str);
+void	ft_put_str(char *str);
 
 #endif
