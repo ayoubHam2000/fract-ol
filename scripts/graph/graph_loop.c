@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:41:27 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 17:05:59 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:15:38 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ void	graph_loop(t_prog *prog)
 		c.b = y_bound.a;
 		while (c.b < y_bound.b)
 		{
-			prog->julia_flag = 1;
-			julia_set(prog, c);
-			//mandelbrot_set(prog, c);
+			prog->f(prog, c);
 			c.b = c.b + step;
 		}
 		c.a = c.a + step;

@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:01:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 17:03:40 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:25:00 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ enum {
 
 typedef struct s_graph
 {
-	t_complex	x_bound;
-	t_complex	y_bound;
-	t_complex	trans;
+	t_complex		x_bound;
+	t_complex		y_bound;
+	t_complex		trans;
 	long double		zoom;
 	long double		step;
 }	t_graph;
@@ -55,13 +55,9 @@ typedef struct s_prog
 {
 	void		*mlx;
 	void		*win;
-	int			stable;
-	int			mouse_flag;
-	int			julia_flag;
 	t_complex	julia_const;
-	t_complex	old_mpos;
-	t_complex	old_tran;
 	t_graph		g;
+	void		(*f)(t_prog *prog, t_complex c);
 }	t_prog;
 
 t_prog	*init_mlx(void);
@@ -81,5 +77,6 @@ void	julia_set(t_prog *prog, t_complex c);
 
 int		set_rgb(int r, int g, int b);
 void	get_color(int map[]);
+double	ft_atof(const char *str);
 
 #endif

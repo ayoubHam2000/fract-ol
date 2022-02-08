@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:48:34 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 16:38:39 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:22:17 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,10 @@ void	zoom_toward_mouse(int x, int y, t_prog *prog)
 	prog->g.trans.b -= diff.b * (CZOOM);
 }
 
-static void	btn_1_click(int x, int y, t_prog *prog)
-{
-	prog->old_mpos.a = x;
-	prog->old_mpos.b = y;
-	prog->old_tran = prog->g.trans;
-	prog->mouse_flag = 1;
-}
-
 int	on_mouse_down(int button, int x, int y, t_prog *prog)
 {
 	int		f;
 
-	if (button == 1)
-		btn_1_click(x, y, prog);
 	if (button == 4 || button == 5)
 	{
 		f = 1;

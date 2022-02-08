@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:54:43 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 17:05:35 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:24:03 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ t_prog	*init_mlx(void)
 		return (NULL);
 	init_graph(&(prog->g));
 	change_graph(&(prog->g));
-	prog->mouse_flag = 0;
-	prog->stable = STABLE;
-	prog->julia_flag = 0;
 	prog->julia_const.a = 0;
 	prog->julia_const.b = 0;
+	prog->f = NULL;
 	return (prog);
 }

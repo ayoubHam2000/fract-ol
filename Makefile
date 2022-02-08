@@ -6,7 +6,7 @@
 #    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 17:21:43 by aben-ham          #+#    #+#              #
-#    Updated: 2022/02/08 15:38:29 by aben-ham         ###   ########.fr        #
+#    Updated: 2022/02/08 18:10:40 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ FILES = \
 	scripts/graph/graph_loop.c \
 	scripts/utils/set_rgb.c \
 	scripts/utils/get_color.c \
+	scripts/utils/ft_atof.c \
 	main.c
 
 NAME = fractol
