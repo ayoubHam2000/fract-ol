@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:48:34 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/07 20:50:01 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 10:32:43 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ int	on_mouse_down(int button, int x, int y, t_prog *prog)
 {
 	int		f;
 
-	if (prog->working_flag)
-		return (0);
 	if (button == 1)
 		btn_1_click(x, y, prog);
 	if (button == 4 || button == 5)

@@ -6,7 +6,7 @@
 #    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 17:21:43 by aben-ham          #+#    #+#              #
-#    Updated: 2022/02/07 19:42:26 by aben-ham         ###   ########.fr        #
+#    Updated: 2022/02/08 15:28:49 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,12 @@ FILES = \
 	scripts/events/on_mouse_move.c \
 	scripts/events/on_mouse_up.c \
 	scripts/fract/mandelbrot_set.c \
+	scripts/fract/julia_set.c \
 	scripts/graph/graph.c \
 	scripts/graph/init_mlx.c \
 	scripts/graph/graph_loop.c \
+	scripts/utils/set_rgb.c \
+	scripts/utils/get_color.c \
 	main.c
 
 NAME = fractol

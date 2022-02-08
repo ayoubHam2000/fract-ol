@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:01:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/07 20:40:32 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:28:18 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,17 @@
 # include "mlx.h"
 # include "complex.h"
 
-# define WIDTH 200
+# define WIDTH 500
 # define TITLE "fractol"
 # define TRAN 0.1
 # define CZOOM 0.1
-#define STABLE 255
+# define STABLE 100
+
+# define KEY_L 123
+# define KEY_R 124
+# define KEY_U 126
+# define KEY_D 125
+# define KEY_ESC 53
 
 enum {
 	ON_KEYDOWN = 2,
@@ -51,7 +57,8 @@ typedef struct s_prog
 	void		*win;
 	int			stable;
 	int			mouse_flag;
-	int			working_flag;
+	int			julia_flag;
+	double		julia_const;
 	t_complex	old_mpos;
 	t_complex	old_tran;
 	t_graph		g;
@@ -68,5 +75,9 @@ void	init_graph(t_graph *g);
 void	change_graph(t_graph *g);
 
 void	mandelbrot_set(t_prog *prog, t_complex c);
+void	julia_set(t_prog *prog, t_complex c);
+
+int		set_rgb(int r, int g, int b);
+void	get_color(int map[]);
 
 #endif

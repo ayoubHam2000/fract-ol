@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot_set.c                                   :+:      :+:    :+:   */
+/*   julia_set.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 15:51:56 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 15:33:05 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/02/08 10:24:08 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/02/08 15:32:58 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	trans_iter(t_complex z, int *iter)
 	*iter = *iter + 1 - nu;
 }
 
-void	mandelbrot_set(t_prog *prog, t_complex p)
+void	julia_set(t_prog *prog, t_complex p)
 {
 	t_complex	z;
 	int			iter;
@@ -30,14 +30,13 @@ void	mandelbrot_set(t_prog *prog, t_complex p)
 	int			map[16];
 	t_graph		*g;
 
-	z.a = 0;
-	z.b = 0;
+	z = p;
 	iter = 0;
 	get_color(map);
 	while (z.a * z.a + z.b * z.b <= (1 << 16) && iter < STABLE)
 	{
-		xtemp = z.a * z.a - z.b * z.b + p.a;
-		z.b = 2 * z.a * z.b + p.b;
+		xtemp = z.a * z.a - z.b * z.b + 0.7885 * (cos(prog->julia_const));
+		z.b = 2 * z.a * z.b + 0.7885 * (sin(prog->julia_const));
 		z.a = xtemp;
 		iter++;
 	}
