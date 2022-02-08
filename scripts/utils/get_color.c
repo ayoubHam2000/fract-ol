@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:27:23 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 15:32:41 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:20:40 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	get_color(int map[])
 {
-	map[0] = set_rgb(252, 229, 112);
+	/*map[0] = set_rgb(252, 229, 112);
     map[1] = set_rgb(25, 7, 26);
     map[2] = set_rgb(9, 1, 47);
     map[3] = set_rgb(4, 4, 73);
@@ -29,5 +29,21 @@ void	get_color(int map[])
     map[12] = set_rgb(255, 170, 0);
     map[13] = set_rgb(204, 128, 0);
     map[14] = set_rgb(153, 87, 0);
-    map[15] = set_rgb(106, 52, 3);
+    map[15] = set_rgb(106, 52, 3);*/
+	map[0] = 0x0009012f;
+	map[1] = 0x00040449;
+	map[2] = 0x00000764;
+	map[3] = 0x000c2c8a;
+	map[4] = 0x001852b1;
+	map[5] = 0x00397dd1;
+	map[6] = 0x0086b5e5;
+	map[7] = 0x00d3ecf8;
+	map[8] = 0x00f1e9bf;
+	map[9] = 0x00f8c95f;
+	map[10] = 0x00ffaa00;
+	map[11] = 0x00cc8000;
+	map[12] = 0x00995700;
+	map[13] = 0x006a3403;
+	map[14] = 0x00421e0f;
+	map[15] = 0x0019071a;
 }

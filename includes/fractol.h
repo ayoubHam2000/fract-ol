@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:01:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 15:28:18 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:03:40 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include "mlx.h"
 # include "complex.h"
 
-# define WIDTH 500
+# define WIDTH 400
 # define TITLE "fractol"
 # define TRAN 0.1
 # define CZOOM 0.1
-# define STABLE 100
+# define STABLE 500
 
 # define KEY_L 123
 # define KEY_R 124
@@ -47,8 +47,8 @@ typedef struct s_graph
 	t_complex	x_bound;
 	t_complex	y_bound;
 	t_complex	trans;
-	double		zoom;
-	double		step;
+	long double		zoom;
+	long double		step;
 }	t_graph;
 
 typedef struct s_prog
@@ -58,7 +58,7 @@ typedef struct s_prog
 	int			stable;
 	int			mouse_flag;
 	int			julia_flag;
-	double		julia_const;
+	t_complex	julia_const;
 	t_complex	old_mpos;
 	t_complex	old_tran;
 	t_graph		g;
@@ -66,10 +66,12 @@ typedef struct s_prog
 
 t_prog	*init_mlx(void);
 
-int	on_mouse_down(int button, int x, int y, t_prog *prog);
-int on_mouse_move(int x, int y, t_prog *prog);
-int	on_mouse_up(int button, int x, int y, t_prog *prog);
+int		on_mouse_down(int button, int x, int y, t_prog *prog);
+int 	on_mouse_move(int x, int y, t_prog *prog);
+int		on_mouse_up(int button, int x, int y, t_prog *prog);
+int		on_key_up(int keycode, t_prog *prog);
 
+int		exit_fract(t_prog *prog);
 void	graph_loop(t_prog *prog);
 void	init_graph(t_graph *g);
 void	change_graph(t_graph *g);

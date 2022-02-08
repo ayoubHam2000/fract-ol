@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 18:04:25 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/07 15:24:49 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:26:12 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_complex	complex_sub(t_complex z1, t_complex z2)
 t_complex	complex_div(t_complex z1, t_complex z2)
 {
 	t_complex	res;
-	double	b;
+	long double	b;
 
 	b = z2.a * z2.a + z2.b * z2.b;
 	if (b == 0)
@@ -58,12 +58,12 @@ t_complex	complex_div(t_complex z1, t_complex z2)
 	return (res);
 }
 
-double	complex_module(t_complex z)
+long double	complex_module(t_complex z)
 {
 	return (sqrt(z.a * z.a + z.b * z.b));
 }
 
 void	complex_print(t_complex z)
 {
-	printf("(%f, %f)\n", z.a, z.b);
+	printf("(%Ldf, %f)\n", z.a, z.b);
 }

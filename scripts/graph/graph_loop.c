@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:41:27 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 15:32:15 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:05:59 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	graph_loop(t_prog *prog)
 	t_complex	x_bound;
 	t_complex	y_bound;
 	t_complex	c;
-	double		step;
+	long double		step;
 
 	mlx_clear_window(prog->mlx, prog->win);
 	x_bound = prog->g.x_bound;

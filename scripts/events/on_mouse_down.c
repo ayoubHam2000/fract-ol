@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:48:34 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 10:32:43 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:38:39 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	zoom_toward_mouse(int x, int y, t_prog *prog)
 {
-	const double	f = 1;
+	const long double	f = 1;
 	t_complex		mpos;
 	t_complex		cpos;
 	t_complex		diff;
@@ -48,7 +48,7 @@ int	on_mouse_down(int button, int x, int y, t_prog *prog)
 		f = 1;
 		if (button == 4 && prog->g.zoom - CZOOM <= 0.5)
 			return (0);
-		if (button == 5 && prog->g.zoom + CZOOM >= (double)(1L << 41))
+		if (button == 5 && prog->g.zoom + CZOOM >= (long double)(1L << 42))
 			return (0);
 		if (button == 4)
 			f = -1;
