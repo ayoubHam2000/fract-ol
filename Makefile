@@ -6,18 +6,15 @@
 #    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 17:21:43 by aben-ham          #+#    #+#              #
-#    Updated: 2022/02/09 16:27:09 by aben-ham         ###   ########.fr        #
+#    Updated: 2022/02/09 17:37:26 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#-Wall -Wextra -Werror
-CFLAGS = -g  -I ./includes
+CFLAGS = -Wall -Wextra -Werror -I ./includes
 DEPFLAGS = -MMD -MF
 FRAMEWORK = -framework opengl -framework Appkit
 
 FILES = \
-	scripts/complex/complex.c \
-	scripts/complex/ncomplex.c \
 	scripts/events/on_mouse_down.c \
 	scripts/events/on_key_up.c \
 	scripts/fract/mandelbrot_set.c \

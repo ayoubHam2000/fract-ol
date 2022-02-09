@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:01:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/09 17:36:02 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:40:28 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define TITLE "fractol"
 # define TRAN 0.5
 # define CZOOM 0.2
-# define STABLE 255
+# define STABLE 100
 
 # define KEY_L 123
 # define KEY_R 124
@@ -41,6 +41,12 @@ enum {
 	ON_EXPOSE = 12,
 	ON_DESTROY = 17
 };
+
+typedef struct s_complex
+{
+	long double	a;
+	long double	b;
+}	t_complex;
 
 typedef struct s_graph
 {
