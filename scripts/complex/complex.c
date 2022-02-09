@@ -6,14 +6,14 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 18:04:25 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 21:33:07 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:17:58 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "complex.h"
 #include <math.h>
 
-# include <stdio.h>
+#include <stdio.h>
 
 t_complex	complex_mul(t_complex z1, t_complex z2)
 {

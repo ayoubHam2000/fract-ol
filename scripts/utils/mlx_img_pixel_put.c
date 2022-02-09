@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_rgb.c                                          :+:      :+:    :+:   */
+/*   mlx_img_pixel_put.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 10:25:33 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 14:46:01 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/02/09 15:43:05 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/02/09 17:33:52 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	set_rgb(int r, int g, int b)
-{
-	int	res;
+#include "fractol.h"
 
-	res = b;
-	res |= g << 8;
-	res |= r << 16;
-	return (res);
+void	mlx_img_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	y = WIDTH - y;
+	if (y >= WIDTH || x >= WIDTH)
+		return ;
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }

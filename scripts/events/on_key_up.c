@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:35:59 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 15:36:17 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:32:50 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ int	on_key_up(int keycode, t_prog *prog)
 		prog->g.trans.b = prog->g.trans.b - TRAN / prog->g.zoom;
 	else if (keycode == KEY_D)
 		prog->g.trans.b = prog->g.trans.b + TRAN / prog->g.zoom;
+	else if (keycode == 12)
+		prog->range_shift_color *= cos(prog->range_shift_color * 0.1);
 	else if (keycode == KEY_ESC)
-		return (exit_fract(prog));
+		return (exit_fractol(prog));
 	else
 		return (0);
 	change_graph(&(prog->g));
-	graph_loop(prog);	
+	graph_loop(prog);
 	return (0);
 }

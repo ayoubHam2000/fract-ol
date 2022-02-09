@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:24:08 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 21:08:07 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:06:23 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ void	julia_set(t_prog *prog, t_complex p)
 	t_complex		z;
 	int				iter;
 	long double		xtemp;
-	int				map[16];
 	t_graph			*g;
 
 	z = p;
 	iter = 0;
-	get_color(map);
 	while (z.a * z.a + z.b * z.b <= (1 << 16) && iter < STABLE)
 	{
 		xtemp = z.a * z.a - z.b * z.b + prog->julia_const.a;
@@ -43,8 +41,8 @@ void	julia_set(t_prog *prog, t_complex p)
 	if (iter < STABLE)
 		trans_iter(z, &iter);
 	g = &(prog->g);
-	p.a = WIDTH - round((p.a / g->step - g->x_bound.a / g->step));
+	p.a = round((p.a / g->step - g->x_bound.a / g->step));
 	p.b = round((p.b / g->step - g->y_bound.a / g->step));
-	printf("%Lf, %Lf\n", p.a, p.b);
-	mlx_pixel_put(prog->mlx, prog->win, p.a, p.b, map[iter % 16]);
+	mlx_img_pixel_put(&(prog->img), p.a, p.b, \
+		prog->color_map[iter % 16] * prog->range_shift_color);
 }

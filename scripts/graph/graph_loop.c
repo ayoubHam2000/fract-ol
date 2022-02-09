@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 19:41:27 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 18:15:38 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:07:17 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	graph_loop(t_prog *prog)
 {
-	t_complex	x_bound;
-	t_complex	y_bound;
-	t_complex	c;
+	t_complex		x_bound;
+	t_complex		y_bound;
+	t_complex		c;
 	long double		step;
 
-	mlx_clear_window(prog->mlx, prog->win);
+	if (!replace_image(prog))
+		exit_fractol(prog);
 	x_bound = prog->g.x_bound;
 	y_bound = prog->g.y_bound;
 	step = prog->g.step;
@@ -34,4 +35,5 @@ void	graph_loop(t_prog *prog)
 		}
 		c.a = c.a + step;
 	}
+	mlx_put_image_to_window(prog->mlx, prog->win, prog->img.img, 0, 0);
 }

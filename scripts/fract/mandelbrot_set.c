@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:51:56 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 16:57:29 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:44:09 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,11 @@ void	mandelbrot_set(t_prog *prog, t_complex p)
 	t_complex		z;
 	int				iter;
 	long double		xtemp;
-	int				map[16];
 	t_graph			*g;
 
 	z.a = 0;
 	z.b = 0;
 	iter = 0;
-	get_color(map);
 	while (z.a * z.a + z.b * z.b <= (1 << 16) && iter < STABLE)
 	{
 		xtemp = z.a * z.a - z.b * z.b + p.a;
@@ -47,5 +45,6 @@ void	mandelbrot_set(t_prog *prog, t_complex p)
 	p.a = round((p.a / g->step - g->x_bound.a / g->step));
 	p.b = round((p.b / g->step - g->y_bound.a / g->step));
 	if (iter != STABLE)
-		mlx_pixel_put(prog->mlx, prog->win, p.a, p.b, map[iter % 16]);
+		mlx_img_pixel_put(&(prog->img), p.a, p.b, \
+			prog->color_map[iter % 16] * prog->range_shift_color);
 }

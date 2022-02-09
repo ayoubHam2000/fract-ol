@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:01:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/08 21:23:40 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:36:02 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include "mlx.h"
 # include "complex.h"
 
-# define WIDTH 200
+# define WIDTH 500
 # define TITLE "fractol"
-# define TRAN 0.1
-# define CZOOM 0.1
-# define STABLE 250
+# define TRAN 0.5
+# define CZOOM 0.2
+# define STABLE 255
 
 # define KEY_L 123
 # define KEY_R 124
@@ -51,13 +51,24 @@ typedef struct s_graph
 	long double		step;
 }	t_graph;
 
-typedef struct s_prog t_prog;
+typedef struct s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_data;
+
+typedef struct s_prog	t_prog;
 struct s_prog
 {
 	void		*mlx;
 	void		*win;
+	t_data		img;
 	t_complex	julia_const;
 	t_graph		g;
+	int			color_map[16];
+	double		range_shift_color;
 	void		(*f)(t_prog *prog, t_complex c);
 } ;
 
@@ -67,18 +78,21 @@ void	*init_mlx(t_prog *prog);
 int		on_mouse_down(int button, int x, int y, t_prog *prog);
 int		on_key_up(int keycode, t_prog *prog);
 
-int		exit_fract(t_prog *prog);
-void	graph_loop(t_prog *prog);
 void	init_graph(t_graph *g);
 void	change_graph(t_graph *g);
+void	graph_loop(t_prog *prog);
 
 void	mandelbrot_set(t_prog *prog, t_complex c);
 void	julia_set(t_prog *prog, t_complex c);
-void	nova_set(t_prog *prog, t_complex p);
+void	bonus_fract(t_prog *prog, t_complex p);
 
-int		set_rgb(int r, int g, int b);
-void	get_color(int map[]);
+void	get_colors(int *map);
 double	ft_atof(const char *str);
 void	ft_put_str(char *str);
+void	mlx_img_pixel_put(t_data *data, int x, int y, int color);
+int		ft_atoi(const char *str);
+void	*replace_image(t_prog *prog);
+int		exit_fractol(t_prog *prog);
+void	check_args(int ac, char **av);
 
 #endif

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graph.c                                            :+:      :+:    :+:   */
+/*   replace_image.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 15:53:11 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/09 14:17:11 by aben-ham         ###   ########.fr       */
+/*   Created: 2022/02/09 16:15:03 by aben-ham          #+#    #+#             */
+/*   Updated: 2022/02/09 16:50:20 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_graph(t_graph *g)
+void	*replace_image(t_prog *prog)
 {
-	g->zoom = 1;
-	g->trans.a = 0;
-	g->trans.b = 0;
-}
-
-void	change_graph(t_graph *g)
-{
-	g->x_bound.a = -2 / g->zoom + g->trans.a;
-	g->x_bound.b = 2 / g->zoom + g->trans.a;
-	g->y_bound.a = -2 / g->zoom + g->trans.b;
-	g->y_bound.b = 2 / g->zoom + g->trans.b;
-	g->step = (g->x_bound.b - g->x_bound.a) / (WIDTH);
+	if (prog->img.img)
+		mlx_destroy_image(prog->mlx, prog->img.img);
+	prog->img.img = mlx_new_image(prog->mlx, WIDTH, WIDTH);
+	prog->img.addr = mlx_get_data_addr(prog->img.img, \
+		&(prog->img.bits_per_pixel), \
+		&(prog->img.line_length), &(prog->img.endian));
+	if (!prog->img.img || !prog->img.addr)
+		return (NULL);
+	return (prog);
 }

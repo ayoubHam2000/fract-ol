@@ -6,7 +6,7 @@
 #    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 17:21:43 by aben-ham          #+#    #+#              #
-#    Updated: 2022/02/08 21:19:35 by aben-ham         ###   ########.fr        #
+#    Updated: 2022/02/09 16:27:09 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,18 @@ FILES = \
 	scripts/events/on_key_up.c \
 	scripts/fract/mandelbrot_set.c \
 	scripts/fract/julia_set.c \
-	scripts/fract/nova_set.c \
+	scripts/fract/bonus_fract.c \
 	scripts/graph/graph.c \
-	scripts/graph/init_mlx.c \
+	scripts/graph/init.c \
 	scripts/graph/graph_loop.c \
-	scripts/utils/set_rgb.c \
-	scripts/utils/get_color.c \
+	scripts/utils/check_args.c \
+	scripts/utils/exit_fractol.c \
 	scripts/utils/ft_atof.c \
+	scripts/utils/ft_atoi.c \
 	scripts/utils/ft_put_str.c \
+	scripts/utils/get_colors.c \
+	scripts/utils/mlx_img_pixel_put.c \
+	scripts/utils/replace_image.c \
 	main.c
 
 NAME = fractol
