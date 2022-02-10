@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:18:39 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/09 17:33:13 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/10 11:53:06 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	help(void)
 {
 	ft_put_str("\n");
-	ft_put_str("fractol <fractal_nbr>");
+	ft_put_str("fractol <windows_size> <depth> <fractal_nbr>");
 	ft_put_str("[julia_reel_const] [julia_imaginary_const]\n\n");
 	ft_put_str("fractal_nbr\n");
 	ft_put_str("\t1 : Mandelbrot set\n");
@@ -35,9 +35,13 @@ void	check_args(int ac, char **av)
 {
 	int	fract;
 
-	if (ac <= 1)
+	if (ac <= 3)
 		help();
-	fract = ft_atof(av[1]);
+	if (ft_atoi(av[1]) <= 50 || ft_atoi(av[1]) >= 1500)
+		help();
+	if (ft_atoi(av[2]) <= 0 || ft_atoi(av[2]) >= 1001)
+		help();
+	fract = ft_atof(av[3]);
 	if (fract < 1 || fract > 3)
 		help();
 }

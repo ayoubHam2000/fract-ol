@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:01:53 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/09 17:40:28 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/10 11:46:41 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include "mlx.h"
 # include "complex.h"
 
-# define WIDTH 500
+//# define WIDTH 300
 # define TITLE "fractol"
 # define TRAN 0.5
 # define CZOOM 0.2
-# define STABLE 100
+//# define STABLE 100
 
 # define KEY_L 123
 # define KEY_R 124
@@ -70,6 +70,8 @@ struct s_prog
 {
 	void		*mlx;
 	void		*win;
+	int			w_size;
+	int			depth;
 	t_data		img;
 	t_complex	julia_const;
 	t_graph		g;
@@ -85,7 +87,7 @@ int		on_mouse_down(int button, int x, int y, t_prog *prog);
 int		on_key_up(int keycode, t_prog *prog);
 
 void	init_graph(t_graph *g);
-void	change_graph(t_graph *g);
+void	change_graph(t_graph *g, int w_size);
 void	graph_loop(t_prog *prog);
 
 void	mandelbrot_set(t_prog *prog, t_complex c);
@@ -95,7 +97,7 @@ void	bonus_fract(t_prog *prog, t_complex p);
 void	get_colors(int *map);
 double	ft_atof(const char *str);
 void	ft_put_str(char *str);
-void	mlx_img_pixel_put(t_data *data, int x, int y, int color);
+void	mlx_img_pixel_put(t_prog *prog, int x, int y, int color);
 int		ft_atoi(const char *str);
 void	*replace_image(t_prog *prog);
 int		exit_fractol(t_prog *prog);

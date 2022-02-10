@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:48:34 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/09 17:27:54 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/10 11:47:19 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	on_mouse_down(int button, int x, int y, t_prog *prog)
 		if (button == 5)
 			zoom_toward_mouse(x, y, prog);
 		prog->g.zoom += CZOOM * prog->g.zoom * f;
-		change_graph(&prog->g);
+		change_graph(&prog->g, prog->w_size);
 		graph_loop(prog);
 	}
 	return (0);

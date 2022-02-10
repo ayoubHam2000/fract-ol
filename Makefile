@@ -6,11 +6,11 @@
 #    By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 17:21:43 by aben-ham          #+#    #+#              #
-#    Updated: 2022/02/09 17:37:26 by aben-ham         ###   ########.fr        #
+#    Updated: 2022/02/10 11:55:03 by aben-ham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror -I ./includes
+CFLAGS = -g -Wall -Wextra -Werror -I ./includes
 DEPFLAGS = -MMD -MF
 FRAMEWORK = -framework opengl -framework Appkit
 

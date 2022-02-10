@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:24:08 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/09 17:06:23 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/10 11:43:01 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ void	julia_set(t_prog *prog, t_complex p)
 
 	z = p;
 	iter = 0;
-	while (z.a * z.a + z.b * z.b <= (1 << 16) && iter < STABLE)
+	while (z.a * z.a + z.b * z.b <= (1 << 16) && iter < prog->depth)
 	{
 		xtemp = z.a * z.a - z.b * z.b + prog->julia_const.a;
 		z.b = 2 * z.a * z.b + prog->julia_const.b;
 		z.a = xtemp;
 		iter++;
 	}
-	if (iter < STABLE)
+	if (iter < prog->depth)
 		trans_iter(z, &iter);
 	g = &(prog->g);
 	p.a = round((p.a / g->step - g->x_bound.a / g->step));
 	p.b = round((p.b / g->step - g->y_bound.a / g->step));
-	mlx_img_pixel_put(&(prog->img), p.a, p.b, \
+	mlx_img_pixel_put(prog, p.a, p.b, \
 		prog->color_map[iter % 16] * prog->range_shift_color);
 }

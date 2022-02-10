@@ -6,7 +6,7 @@
 /*   By: aben-ham <aben-ham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 15:35:59 by aben-ham          #+#    #+#             */
-/*   Updated: 2022/02/09 17:32:50 by aben-ham         ###   ########.fr       */
+/*   Updated: 2022/02/10 11:47:07 by aben-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	on_key_up(int keycode, t_prog *prog)
 		return (exit_fractol(prog));
 	else
 		return (0);
-	change_graph(&(prog->g));
+	change_graph(&(prog->g), prog->w_size);
 	graph_loop(prog);
 	return (0);
 }
